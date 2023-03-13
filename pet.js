@@ -6,9 +6,9 @@ class Pet {
       this.breed = _breed
    }
 
-   static isOwner(petA, petB){
-      
-   }
+   static isSameOwner(pet1, pet2) {
+      return pet1.ownerName === pet2.ownerName;
+    }
 
 }
 
@@ -18,14 +18,13 @@ let button = document.querySelector('.btn');
 const arrayPet = [];
 
 button.addEventListener('click', function(){
-   let petNameForm = document.getElementById('petName').value;
-   let ownerNameForm = document.getElementById('ownerName').value;
-   let speciesForm = document.getElementById('species').value;
-   let breedForm = document.getElementById('breed').value;
+   let petNameForm = myForm.petName.value;
+   let ownerNameForm = myForm.ownerName.value;
+   let speciesForm = myForm.species.value;
+   let breedForm = myForm.breed.value;
 
    // pusho i valori recuperati dal form all'interno di un array formato da più oggetti istanziati dalla classe Pet
    arrayPet.push(new Pet(petNameForm, ownerNameForm, speciesForm, breedForm));
-   console.log(arrayPet);
 
    // appendListItem()
    appendListItem(arrayPet[arrayPet.length-1]);
@@ -45,33 +44,3 @@ function appendListItem(lastObjPet){
    })
    listWrapper.appendChild(tr);
 }
-
-
-
-
-// function appendListItem(arrayPet){
-//    let li = document.createElement('li');
-//    let contentLi = document.createTextNode(`${arrayPet.petName}, ${arrayPet.ownerName}, ${arrayPet.species}, ${arrayPet.breed}`);
-
-//    li.append(contentLi);
-//    listWrapper.append(li);
-// }
-
-// const Schia = new Pet("Schia", "Antonio", "Cane", "Labrador");
-// const Nina = new Pet("Nina", "Ilaria", "Cane", "Labrador");
-// const Bosco = new Pet("Bosco", "Luisa", "Cane", "Mixed breed");
-// const Rarity = new Pet("Rarity", "Aurora", "Gatto", "Ragdoll");
-// const Ulisse = new Pet("Bosco", "Luisa", "Cane", "Mixed breed");
-// const Pedro = new Pet("Bosco", "Laura", "Gatto", "Siamese");
-
-// let petName = document.getElementById('petName').value;
-// console.log(petName);
-
-// function reset(petNameForm, ownerNameForm, speciesForm, breedForm){
-//    petNameForm = "";
-//    ownerNameForm = "";
-//    speciesForm = "";
-//    breedForm = "";
-//       console.log(petNameForm, ownerNameForm, speciesForm, breedForm);
-
-// }
